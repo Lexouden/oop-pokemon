@@ -16,6 +16,7 @@ class Type extends Pokemon {
 
 }
 
+// Build Pikachu Form Pokemon
 class Pikachu extends Pokemon {
   constructor(nickname, type, hp) {
     super(nickname, hp, type)
@@ -41,6 +42,7 @@ class Pikachu extends Pokemon {
   }
 }
 
+// Build Charmeleon from Pokemon
 class Charmeleon extends Pokemon {
   constructor(nickname, type, hp) {
     super(nickname, hp, type)

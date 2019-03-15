@@ -14,7 +14,7 @@ function battle1(attacker, defender, attack) {
   var had_resistance = false;
 
   if (defender.resistance.type === attacker.type) {
-    attack.damage - defender.resistance.value;
+    attack.damage = attack.damage - defender.resistance.value;
     had_resistance = true;
   } else if (defender.weakness.type === attacker.type) {
     attack.damage = attack.damage * defender.weakness.multiplier;
@@ -38,7 +38,7 @@ function battle2(attacker, defender, attack) {
   var had_resistance = false;
 
   if (defender.resistance.type === attacker.type) {
-    attack.damage - defender.resistance.value;
+    attack.damage = attack.damage - defender.resistance.value;
     had_resistance = true;
   } else if (defender.weakness.type === attacker.type) {
     attack.damage = attack.damage * defender.weakness.multiplier;
