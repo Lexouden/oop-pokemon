@@ -2,6 +2,7 @@ class Pokemon {
   constructor(nickname, hp, type) {
     this.nickname = nickname;
     this.hp = hp;
+    this.health = hp;
     this.type = type;
   }
 
