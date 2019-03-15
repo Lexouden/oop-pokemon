@@ -4,12 +4,22 @@ class Pokemon {
     this.hp = hp;
     this.type = type;
   }
+
+  // Update HP after attack
+  set updateHP(hp) {
+    this.hp = hp;
+  }
+}
+
+class Type extends Pokemon {
+
 }
 
 class Pikachu extends Pokemon {
-  constructor(nickname, hp, type) {
+  constructor(nickname, type, hp) {
     super(nickname, hp, type)
 
+    this.name = 'Pikachu';
     this.attack = [{
         name: 'Electric Ring',
         damage: 50
@@ -34,6 +44,7 @@ class Charmeleon extends Pokemon {
   constructor(nickname, type, hp) {
     super(nickname, hp, type)
 
+    this.name = 'Charmeleon';
     this.attack = [{
       name: 'Head Butt',
       damage: 10
