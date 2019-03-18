@@ -65,7 +65,7 @@ export class Pokemon {
     enemy.health -= damage;
 
     // Write result to screen
-    let msg = `${displayName} used ${attack.name} to attack ${enemyDisplayName} ${effectiveness}. \n ${enemy.health < 1? `*${enemyDisplayName} has fainted*`: `${enemyDisplayName} has ${enemy.health}/${enemy.hp} health left.`}`;
+    let msg = `${displayName} used ${attack.name} to attack ${enemyDisplayName} ${effectiveness}. \n ${enemyDisplayName} has ${enemy.health}/${enemy.hp} health left.`;
     writeToScreen(msg);
   }
 }
