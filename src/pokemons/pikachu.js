@@ -3,7 +3,7 @@ import {
   energyTypes
 } from '../pokemon.js';
 
-// Base class Pickachu, here are all default pokemon stats definded. 
+// Base class Pikachu, here are all default pokemon stats definded. 
 export class Pikachu extends Pokemon {
   name = 'Pikachu';
   type = energyTypes.lightning;
