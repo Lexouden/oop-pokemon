@@ -1,7 +1,7 @@
 const dialogue = document.getElementById('dialogue');
 
 // Function to write text to screen; with optional coloring.
-const writeToScreen = (text, color) => {
+export const writeToScreen = (text, color) => {
   const element = document.createElement('p');
   element.innerText = text;
   if (color) {
@@ -65,7 +65,7 @@ export class Pokemon {
     enemy.health -= damage;
 
     // Write result to screen
-    let msg = `${displayName} used ${attack.name} to attack ${enemyDisplayName} ${effectiveness}. \n ${enemyDisplayName} has ${enemy.health}/${enemy.hp} health left.`;
+    let msg = `${displayName} used ${attack.name} to attack ${enemyDisplayName} ${effectiveness}. \n ${enemyDisplayName} has ${enemy.health} health left.`;
     writeToScreen(msg);
   }
 }
