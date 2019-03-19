@@ -19,10 +19,12 @@ export class Charmeleon extends Pokemon {
   }];
   attacks = {
     headbutt: {
+      type: energyTypes.fighting,
       name: 'Headbutt',
       damage: 10
     },
     flare: {
+      type: energyTypes.fire,
       name: 'Flare',
       damage: 30
     }

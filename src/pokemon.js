@@ -43,8 +43,8 @@ export class Pokemon {
     const enemyDisplayName = enemy.nickname || enemy.name;
 
     // Getting the enemy weakness and resistance
-    const enemyWeakness = enemy.weakness.find(weakness => weakness.type === this.type);
-    const enemyResistance = enemy.resistance.find(resistance => resistance.type === this.type);
+    const enemyWeakness = enemy.weakness.find(weakness => weakness.type === attack.type);
+    const enemyResistance = enemy.resistance.find(resistance => resistance.type === attack.type);
     let effectiveness = '';
     let damage = attack.damage;
 

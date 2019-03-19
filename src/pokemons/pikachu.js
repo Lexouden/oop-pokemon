@@ -19,10 +19,12 @@ export class Pikachu extends Pokemon {
   }];
   attacks = {
     electricRing: {
+      type: energyTypes.lightning,
       name: 'Electric Ring',
       damage: 50
     },
     pikapunch: {
+      type: energyTypes.fighting,
       name: 'Pika Punch',
       damage: 20
     }
