@@ -35,7 +35,12 @@ export class Pokemon {
       return;
     }
     if (!enemy) {
-      writeToScreen("Your pokemon can't fight its self, choose an opponent!", 'red');
+      writeToScreen("Your pokemon can't fight by it self, choose an opponent!", 'red');
+      return;
+    }
+    if (enemy.nickname === this.nickname) {
+      writeToScreen("Your pokemon can't fight by it self, choose an opponent!", 'red');
+      return;
     }
 
     // Getting the pokemon names to show
