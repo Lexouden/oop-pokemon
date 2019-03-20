@@ -1,0 +1,9 @@
+No negative comments.
+
+The code is very well commented, every function of interest has a comment explaining what is does.
+Classes are reusable and easily extendable, there is pretty much no code implemented more then once.
+There are multiple objects with things like energy types making code completion work very well and
+preventing spelling errors.
+And dark mode, you can never go wrong with dark mode.
+
+Overall a very good implementation of the assignment.
