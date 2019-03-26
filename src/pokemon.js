@@ -27,6 +27,53 @@ export class Pokemon {
     this.nickname = nickname;
   }
 
+  get weakness() {
+    return this.weakness;
+  }
+
+  get resistance() {
+    return this.resistance;
+  }
+
+  get health() {
+    return this.health < 1 ? this.hp : this.health;
+  }
+
+  get displayName() {
+    return this.nickname || this.name;
+  }
+
+  set takeDamage(damage) {
+    this.health -= damage;
+  }
+
+  calculateDamage(attack) {
+    // Find weakness and resistance
+    let weakness = this.weakness.find(weakness => weakness.type === attack.type);
+    let resistance = this.resistance.find(resistance => resistance.type === attack.type);
+
+    let effectiveness = ''; 
+    let damage = attack.damage;
+
+    // See if the enemy has a weakness against your energy type
+    if (weakness) {
+      damage *= weakness.multiplier;
+      effectiveness = 'it was super effective, Now that\'s a lot a damage! ~Phil Swift';
+    }
+
+    // Check if the enemy has a resistance against your energy type
+    if (resistance) {
+      damage -= resistance.value;
+      if (damage < 0) damage = 0;
+      effectiveness = 'but you\'re ineffective against him..';
+    }
+
+    // Let the pokemon take take its damage
+    this.takeDamage = damage;
+
+    return effectiveness;
+  }
+
   // Attack method
   attack(enemy, attack) {
     // Checking if arguments are present
@@ -45,29 +92,9 @@ export class Pokemon {
 
     // Getting the pokemon names to show
     const displayName = this.nickname || this.name;
-    const enemyDisplayName = enemy.nickname || enemy.name;
+    const enemyDisplayName = enemy.displayName;
 
-    // Getting the enemy weakness and resistance
-    const enemyWeakness = enemy.weakness.find(weakness => weakness.type === attack.type);
-    const enemyResistance = enemy.resistance.find(resistance => resistance.type === attack.type);
-    let effectiveness = '';
-    let damage = attack.damage;
-
-    // See if the enemy has a weakness against your energy type
-    if (enemyWeakness) {
-      damage *= enemyWeakness.multiplier;
-      effectiveness = 'it was super effective, Now that\'s a lot a damage! ~Phil Swift';
-    }
-
-    // Check if the enemy has a resistance against your energy type
-    if (enemyResistance) {
-      damage -= enemyResistance.value;
-      if (damage < 0) damage = 0;
-      effectiveness = 'but you\'re useless against him..';
-    }
-
-    // Remove damage from enemy health
-    enemy.health -= damage;
+    let effectiveness = enemy.calculateDamage(attack);
 
     // Write result to screen
     let msg = `${displayName} used ${attack.name} to attack ${enemyDisplayName} ${effectiveness}. \n ${enemyDisplayName} has ${enemy.health} health left.`;
